@@ -33,11 +33,24 @@ public class MainController {
         model.addAttribute("item", new Item());
         return "item";
     }
+
     @PostMapping("/item")
     public String itemSubmit(@ModelAttribute Item item, Model model){
         model.addAttribute("item", item);
         itemRepository.save(item);
         return "resultOfItem";
+    }
+
+    @GetMapping("/upItem/{idOfItem}")
+    public String editItem(@PathVariable("idOfItem") int idOfItem, Model model){
+        model.addAttribute("item", itemRepository.findById(idOfItem));
+        return "editItem";
+    }
+
+    @GetMapping("/rmItem/{idOfItem}")
+    public String deleteItem(@PathVariable("idOfItem") int idOfItem){
+        itemRepository.deleteById(idOfItem);
+        return "redirect:/item";
     }
 
     @GetMapping("/allItems")
@@ -51,11 +64,24 @@ public class MainController {
         model.addAttribute("order", new Order());
         return "item";
     }
+
     @PostMapping("/order")
     public String ordersSubmit(@ModelAttribute Order order, Model model){
         model.addAttribute("order", order);
         orderRepository.save(order);
-        return "resultOfItem";
+        return "resultOfOrder";
+    }
+
+    @GetMapping("/upOrder/{idOfOrder}")
+    public String editOrder(@PathVariable("idOfOrder") int idOfOrder, Model model){
+        model.addAttribute("item", orderRepository.findById(idOfOrder));
+        return "editOrder";
+    }
+
+    @GetMapping("/rmOrder/{idOfOrder}")
+    public String deleteOrder(@PathVariable("idOfOrder") int idOfOrder){
+        orderRepository.deleteById(idOfOrder);
+        return "redirect:/order";
     }
 
     @GetMapping("/allOrders")
@@ -77,6 +103,18 @@ public class MainController {
         return "resultOfProvider";
     }
 
+    @GetMapping("/upProvider/{idOfProvider}")
+    public String editProvider(@PathVariable("idOfProvider") int idOfProvider, Model model){
+        model.addAttribute("provider", providerRepository.findById(idOfProvider));
+        return "editProvider";
+    }
+
+    @GetMapping("/rmProvider/{idOfProvider}")
+    public String deleteProvider(@PathVariable("idOfProvider") int idOfProvider){
+        providerRepository.deleteById(idOfProvider);
+        return "redirect:/provider";
+    }
+
     @GetMapping("/allProviders")
     public String getProviders(Model model){
         model.addAttribute("providers", providerRepository.findAllProviders());
@@ -96,6 +134,18 @@ public class MainController {
         return "resultOfClient";
     }
 
+    @GetMapping("/upClient/{idOfClient}")
+    public String editClient(@PathVariable("idOfClient") int idOfClient, Model model){
+        model.addAttribute("client", clientRepository.findById(idOfClient));
+        return "editClient";
+    }
+
+    @GetMapping("/rmClient/{idOfClient}")
+    public String deleteClient(@PathVariable("idOfClient") int idOfClient){
+        providerRepository.deleteById(idOfClient);
+        return "redirect:/client";
+    }
+
     @GetMapping("/allClients")
     public String getClients(Model model){
         model.addAttribute("clients", clientRepository.findAllClients());
@@ -113,6 +163,18 @@ public class MainController {
         model.addAttribute("worker", worker);
         workerRepository.save(worker);
         return "resultOfWorker";
+    }
+
+    @GetMapping("/upWorker/{idOfWorker}")
+    public String editWorker(@PathVariable("idOfWorker") int idOfWorker, Model model){
+        model.addAttribute("worker", workerRepository.findById(idOfWorker));
+        return "editWorker";
+    }
+
+    @GetMapping("/rmWorker/{idOfWorker}")
+    public String deleteWorker(@PathVariable("idOfWorker") int idOfWorker){
+        workerRepository.deleteById(idOfWorker);
+        return "redirect:/worker";
     }
 
     @GetMapping("/allWorkers")
