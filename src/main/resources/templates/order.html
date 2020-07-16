@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Add new order</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Add new order</h1>
+<form action="#" th:action="@{/order}" th:object="${order}" method="post">
+    <p>Id: <input type="number" th:field="*{idOfOrder}" /></p>
+    <p>NumOfOr: <input type="number" th:field="*{numOfOr}" /></p>
+    <p>ListOfCon: <input type="text" th:field="*{idOfWorker}" /></p>
+    <p>Сharacteristics: <input type="text" th:field="*{charac}" /></p>
+    <p>Price: <input type="number" th:field="*{price}" /></p>
+    <p>Batch number: <input type="number" th:field="*{numOfPar}" /></p>
+    <p>Quantity in stock: <input type="number" th:field="*{number}" /></p>
+    <p><input type="submit" value="Submit" /><input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

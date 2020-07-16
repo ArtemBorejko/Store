@@ -62,7 +62,7 @@ public class MainController {
     @GetMapping("/order")
     public String orderForm(Model model){
         model.addAttribute("order", new Order());
-        return "item";
+        return "order";
     }
 
     @PostMapping("/order")
@@ -86,7 +86,7 @@ public class MainController {
 
     @GetMapping("/allOrders")
     public String getOrders(Model model){
-        model.addAttribute("order", orderRepository.findAllOrders());
+        model.addAttribute("orders", orderRepository.findAllOrders());
         return "allOrders";
     }
 
