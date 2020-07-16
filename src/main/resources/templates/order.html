@@ -9,11 +9,13 @@
 <form action="#" th:action="@{/order}" th:object="${order}" method="post">
     <p>Id: <input type="number" th:field="*{idOfOrder}" /></p>
     <p>NumOfOr: <input type="number" th:field="*{numOfOr}" /></p>
-    <p>ListOfCon: <input type="text" th:field="*{idOfWorker}" /></p>
-    <p>Сharacteristics: <input type="text" th:field="*{charac}" /></p>
-    <p>Price: <input type="number" th:field="*{price}" /></p>
-    <p>Batch number: <input type="number" th:field="*{numOfPar}" /></p>
-    <p>Quantity in stock: <input type="number" th:field="*{number}" /></p>
+    <p>IdOfClient: <input type="number" th:field="*{idOfClient}" /></p>
+    <p>IdOfWorker <input type="number" th:field="*{idOfWorker}" /></p>
+    <p>DateOfOrder: <input type="date" th:field="*{dateOfOrder}" /></p>
+    <p>Order status: <input type="text" th:field="*{orderStatus}" /></p>
+    <p>Price of order: <input type="number" th:field="*{priceOfOrder}" /></p>
+    <p>Payment method: <input type="text" th:field="*{paymentMeth}" /></p>
+    <p>Method for obtaine: <input type="text" th:field="*{methOfObt}" /></p>
     <p><input type="submit" value="Submit" /><input type="reset" value="Reset" /></p>
 </form>
 </body>
