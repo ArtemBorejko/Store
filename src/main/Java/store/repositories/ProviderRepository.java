@@ -10,4 +10,5 @@ import java.util.List;
 public interface ProviderRepository extends CrudRepository<Provider, Integer> {
     @Query(value = "SELECT * FROM providers", nativeQuery = true)
     List<Provider> findAllProviders();
+    void updateProvider(Provider provider);
 }
