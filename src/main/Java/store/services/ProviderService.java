@@ -8,9 +8,9 @@ public interface ProviderService {
 
     List<Provider> findAll();
 
-    void save(Provider provider);
+    Provider save(Provider provider);
 
-    void update(Provider provider);
+    Provider update(Provider provider);
 
     void delete(int idOfProvider);
 

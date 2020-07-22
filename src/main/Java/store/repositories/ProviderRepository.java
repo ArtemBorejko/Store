@@ -1,14 +1,9 @@
 package store.repositories;
 
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import store.entities.Provider;
 
-import java.util.List;
 
+public interface ProviderRepository extends JpaRepository<Provider, Integer> {
 
-public interface ProviderRepository extends CrudRepository<Provider, Integer> {
-    @Query(value = "SELECT * FROM providers", nativeQuery = true)
-    List<Provider> findAllProviders();
-    void updateProvider(Provider provider);
 }

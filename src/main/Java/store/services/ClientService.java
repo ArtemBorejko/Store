@@ -1,16 +1,15 @@
 package store.services;
 
 import store.entities.Client;
-
-
 import java.util.List;
 
 public interface ClientService {
+
     List<Client> findAll();
 
-    void save(Client client);
+    Client save(Client client);
 
-    void update(Client client);
+    Client update(Client client);
 
     void delete(int idOfClient);
 
