@@ -24,7 +24,7 @@ public class ProviderServiceImpl implements ProviderService {
     }
 
     public Provider getById(int idOfProvider){
-        return providerRepository.getOne(idOfProvider);
+        return providerRepository.getByIdOfProvider(idOfProvider);
     }
 
     public Provider update(Provider provider){

@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Add new client</title>
+    <title>Edit client</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Add new client</h1>
+<h1>Edit client</h1>
 <form action="#" th:action="@{/client}" th:object="${client}" method="post">
     <p>Id: <input type="number" th:field="*{idOfClient}" th:value="*{idOfClient}"/></p>
     <p>Fullname: <input type="text" th:field="*{fullname}" th:value="*{fullname}" /></p>

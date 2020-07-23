@@ -24,8 +24,8 @@ public class ItemServiceImpl implements ItemService {
         return itemRepository.findAll();
     }
 
-    public Item getById(int idOfProvider){
-        return itemRepository.getOne(idOfProvider);
+    public Item getById(int idOfItem){
+        return itemRepository.getByIdOfItem(idOfItem);
     }
 
     public Item update(Item item){

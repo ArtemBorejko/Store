@@ -1,8 +1,6 @@
 package store.services;
 
-
 import store.entities.Item;
-
 import java.util.List;
 
 public interface ItemService {

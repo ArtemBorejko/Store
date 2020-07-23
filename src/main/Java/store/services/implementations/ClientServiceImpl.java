@@ -32,7 +32,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     public Client getById(int idOfClient) {
-        return clientRepository.getOne(idOfClient);
+        return clientRepository.getByIdOfClient(idOfClient);
     }
 
 }

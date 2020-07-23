@@ -37,6 +37,6 @@ public class WorkerServiceImpl implements WorkerService {
 
     @Override
     public Worker getById(int idOfWorker) {
-        return workerRepository.getOne(idOfWorker);
+        return workerRepository.getByIdOfWorker(idOfWorker);
     }
 }

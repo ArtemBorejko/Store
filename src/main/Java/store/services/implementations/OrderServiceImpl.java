@@ -37,6 +37,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order getById(int idOfOrder) {
-        return orderRepository.getOne(idOfOrder);
+        return orderRepository.getByIdOfOrder(idOfOrder);
     }
 }
