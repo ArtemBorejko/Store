@@ -80,7 +80,7 @@ public class MainController {
 
     @GetMapping("/upOrder/{idOfOrder}")
     public String editOrder(@PathVariable("idOfOrder") int idOfOrder, Model model){
-        model.addAttribute("item", orderService.getById(idOfOrder));
+        model.addAttribute("order", orderService.getById(idOfOrder));
         return "editOrder";
     }
 

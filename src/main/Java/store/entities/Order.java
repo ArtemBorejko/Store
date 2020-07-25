@@ -12,10 +12,10 @@ public class Order {
     private int numOfOr;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idOfClient")
-    private Client idOfClient;
+    private Client client;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idOfWorker")
-    private Worker idOfWorker;
+    private Worker worker;
     private Date dateOfOrder;
     private String orderStatus;
     private int priceOfOrder;
@@ -48,20 +48,20 @@ public class Order {
         this.numOfOr = numOfOr;
     }
 
-    public Client getIdOfClient() {
-        return idOfClient;
+    public Client getClient() {
+        return client;
     }
 
-    public void setIdOfClient(Client idOfClient) {
-        this.idOfClient = idOfClient;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public Worker getIdOfWorker() {
-        return idOfWorker;
+    public Worker getWorker() {
+        return worker;
     }
 
-    public void setIdOfWorker(Worker idOfWorker) {
-        this.idOfWorker = idOfWorker;
+    public void setWorker(Worker worker) {
+        this.worker = worker;
     }
 
     public Date getDateOfOrder() {

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Edit order</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Edit order</h1>
+<form action="#" th:action="@{/order}" th:object="${order}" method="post">
+    <p>Id: <input type="number" th:field="*{idOfOrder}"  th:value="*{idOfOrder}"/></p>
+    <p>NumOfOr: <input type="number" th:field="*{numOfOr}" th:value="*{numOfOr}"/></p>
+    <p>IdOfClient: <input type="number" th:field="*{client.getIdOfClient()}" th:value="*{client.getIdOfClient()}"/></p>
+    <p>IdOfWorker <input type="number" th:field="*{worker.getIdOfWorker()}" th:value="*{worker.getIdOfWorker()}"/></p>
+    <p>DateOfOrder: <input type="date" th:field="*{dateOfOrder}" th:value="*{dateOfOrder}"/></p>
+    <p>Order status: <input type="text" th:field="*{orderStatus}" th:value="*{orderStatus}"/></p>
+    <p>Price of order: <input type="number" th:field="*{priceOfOrder}" th:value="*{priceOfOrder}"/></p>
+    <p>Payment method: <input type="text" th:field="*{paymentMeth}" th:value="*{paymentMeth}"/></p>
+    <p>Method for obtaine: <input type="text" th:field="*{methOfObt}" th:value="*{methOfObt}"/></p>
+    <p><input type="submit" value="Submit" /><input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>
