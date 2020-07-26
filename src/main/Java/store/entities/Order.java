@@ -1,7 +1,7 @@
 package store.entities;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 @Entity(name = "orders")
@@ -18,7 +18,7 @@ public class Order {
     private Worker worker;
     private Date dateOfOrder;
     private String orderStatus;
-    private int priceOfOrder;
+    private float priceOfOrder;
     private String paymentMeth;
     private String methOfObt;
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ordersList")
@@ -80,11 +80,11 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    public int getPriceOfOrder() {
+    public float getPriceOfOrder() {
         return priceOfOrder;
     }
 
-    public void setPriceOfOrder(int priceOfOrder) {
+    public void setPriceOfOrder(float priceOfOrder) {
         this.priceOfOrder = priceOfOrder;
     }
 

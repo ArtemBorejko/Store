@@ -16,7 +16,7 @@ public class Client {
     private String phone;
     private String address;
     private Date dateOfBirth;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idOfClient")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
     private Set<Order> order;
 
     public Client() {

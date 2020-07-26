@@ -19,7 +19,7 @@ public class Worker {
     private Date dateofstart;
     private Date dateofbirthday;
     private String idencode;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idOfWorker")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "worker")
     private Set<Order> order;
 
     public Worker() {

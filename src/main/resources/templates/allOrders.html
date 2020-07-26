@@ -14,18 +14,22 @@
         <th>IdOfClient</th>
         <th>IdOfWorker</th>
         <th>DateOfOrder</th>
-        <th>Fullname</th>
+        <th>Order status</th>
+        <th>Price</th>
+        <th>Payment method</th>
+        <th>Method for obtaining</th>
     </tr>
     <tr th:each="order : ${orders}">
         <td><span th:text="${order.idOfOrder}"></span></td>
         <td><span th:text="${order.numOfOr}"></span></td>
-        <td><span th:text="${order.client}"></span></td>
-        <td><span th:text="${order.worker}"></span></td>
+        <td><span th:text="${order.client.getIdOfClient()}"></span></td>
+        <td><span th:text="${order.worker.getIdOfWorker()}"></span></td>
         <td><span th:text="${order.dateOfOrder}"></span></td>
         <td><span th:text="${order.orderStatus}"></span></td>
         <td><span th:text="${order.priceOfOrder}"></span></td>
         <td><span th:text="${order.paymentMeth}"></span></td>
         <td><span th:text="${order.methOfObt}"></span></td>
+        <td><span th:text="${order.getItemsList()}"></span></td>
     </tr>
 </table>
 </body>
