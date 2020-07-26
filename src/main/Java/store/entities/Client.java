@@ -1,6 +1,7 @@
 package store.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.sql.Date;
 import java.util.Set;
@@ -8,13 +9,16 @@ import java.util.Set;
 @Entity(name = "clients")
 public class Client {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idOfClient;
+    @NotNull
     private String fullname;
     private String email;
     @Size(min = 9, max = 11)
+    @NotNull
     private String phone;
     private String address;
+    @NotNull
     private Date dateOfBirth;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
     private Set<Order> order;

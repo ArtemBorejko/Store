@@ -1,20 +1,25 @@
 package store.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "providers")
 public class Provider {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idOfProvider;
+    @NotNull
     private String name;
+    @NotNull
     private String address;
+    @NotNull
     private String typeOfItem;
     @Size(min = 9, max = 11)
+    @NotNull
     private String phone;
+    @NotNull
     private String fullname;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "provider")
     private List<Item> items;

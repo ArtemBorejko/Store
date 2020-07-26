@@ -1,13 +1,14 @@
 package store.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Date;
 import java.util.List;
 
 @Entity(name = "orders")
 public class Order {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idOfOrder;
     private int numOfOr;
     @ManyToOne(fetch = FetchType.LAZY)
@@ -16,10 +17,15 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idOfWorker")
     private Worker worker;
+    @NotNull
     private Date dateOfOrder;
+    @NotNull
     private String orderStatus;
+    @NotNull
     private float priceOfOrder;
+    @NotNull
     private String paymentMeth;
+    @NotNull
     private String methOfObt;
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ordersList")
     private List<Item> itemsList;

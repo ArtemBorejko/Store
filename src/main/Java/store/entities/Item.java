@@ -1,18 +1,25 @@
 package store.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity(name = "items")
 public class Item {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idOfItem;
+    @NotNull
     private String name;
+    @NotNull
     private String listOfCon;
+    @NotNull
     private String charac;
+    @NotNull
     private int price;
+    @NotNull
     private int numOfPar;
+    @NotNull
     private int number;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "itemsList")
