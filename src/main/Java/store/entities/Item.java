@@ -1,8 +1,10 @@
 package store.entities;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Entity(name = "items")
 public class Item {
@@ -21,13 +23,6 @@ public class Item {
     private int numOfPar;
     @NotNull
     private int number;
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "itemsList")
-    private List<Order> ordersList;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "items")
-    private Provider provider;
 
     public int getIdOfItem() {
         return idOfItem;
@@ -35,14 +30,6 @@ public class Item {
 
     public void setIdOfItem(int idOfItem) {
         this.idOfItem = idOfItem;
-    }
-
-    public List<Order> getOrdersList() {
-        return ordersList;
-    }
-
-    public void setOrdersList(List<Order> ordersList) {
-        this.ordersList = ordersList;
     }
 
     public String getName() {
@@ -91,13 +78,5 @@ public class Item {
 
     public void setNumber(int number) {
         this.number = number;
-    }
-
-    public Provider getProvider() {
-        return provider;
-    }
-
-    public void setProvider(Provider provider) {
-        this.provider = provider;
     }
 }

@@ -11,10 +11,10 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idOfOrder;
     private int numOfOr;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "idOfClient")
     private Client client;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "idOfWorker")
     private Worker worker;
     @NotNull
@@ -27,7 +27,8 @@ public class Order {
     private String paymentMeth;
     @NotNull
     private String methOfObt;
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ordersList")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "order_items", joinColumns = {@JoinColumn(name = "order_id")}, inverseJoinColumns = {@JoinColumn(name = "item_id")})
     private List<Item> itemsList;
 
     public int getIdOfOrder() {

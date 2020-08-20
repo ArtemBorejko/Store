@@ -10,8 +10,6 @@
 <table>
     <tr>
         <th>Id</th>
-        <th>Login</th>
-        <th>Password</th>
         <th>Fullname</th>
         <th>Post</th>
         <th>Phone</th>
@@ -21,13 +19,11 @@
     </tr>
     <tr th:each="worker : ${workers}">
         <td><span th:text="${worker.idOfWorker}"></span></td>
-        <td><span th:text="${worker.login}"></span></td>
-        <td><span th:text="${worker.password}"></span></td>
         <td><span th:text="${worker.fullname}"></span></td>
         <td><span th:text="${worker.post}"></span></td>
         <td><span th:text="${worker.phone}"></span></td>
-        <td><span th:text="${worker.dateofstart}"></span></td>
-        <td><span th:text="${worker.dateofbirthday}"></span></td>
+        <td><span th:text="${worker.dateOfStart}"></span></td>
+        <td><span th:text="${worker.dateofBirthday}"></span></td>
         <td><span th:text="${worker.idencode}"></span></td>
     </tr>
 </table>

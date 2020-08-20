@@ -8,13 +8,11 @@
 <h1>Add new worker</h1>
 <form action="#" th:action="@{/worker}" th:object="${worker}" method="post">
     <p>Id: <input type="number" th:field="*{idOfWorker}" th:value="*{idOfWorker}"/></p>
-    <p>Name: <input type="text" th:field="*{login}" th:value="*{login}"/></p>
-    <p>Email: <input type="password" th:field="*{password}" th:value="*{password}"/></p>
     <p>Enter you fullname: <input type="text" th:field="*{fullname}" th:value="*{fullname}"/></p>
     <p>Your post: <input type="text" th:field="*{post}" th:value="*{post}"/></p>
     <p>Phone: <input type="text" th:field="*{phone}"  th:value="*{phone}"/></p>
-    <p>Date of start: <input type="date" th:field="*{dateofstart}" th:value="*{dateofstart}"/></p>
-    <p>Date of birthday: <input type="date" th:field="*{dateofbirthday}" th:value="*{dateofbirthday}"/></p>
+    <p>Date of start: <input type="date" th:field="*{dateOfStart}" th:value="*{dateOfStart}"/></p>
+    <p>Date of birthday: <input type="date" th:field="*{dateofBirthday}" th:value="*{dateofBirthday}"/></p>
     <p>Identification code: <input type="text" th:field="*{idencode}" th:value="*{idencode}"/></p>
     <p><input type="submit" value="Submit" /><input type="reset" value="Reset" /></p>
 </form>

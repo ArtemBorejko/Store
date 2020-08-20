@@ -15,17 +15,17 @@ public class Provider {
     @NotNull
     private String address;
     @NotNull
-    private String typeOfItem;
+    private String typesOfItem;
     @Size(min = 9, max = 11)
     @NotNull
     private String phone;
     @NotNull
     private String fullname;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "provider")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "providers_items", joinColumns = {@JoinColumn(name = "provider_id")}, inverseJoinColumns = {@JoinColumn(name = "item_id")})
     private List<Item> items;
 
     public Provider(){
-
     }
 
     public int getIdOfProvider() {
@@ -51,14 +51,13 @@ public class Provider {
         this.address = address;
     }
 
-    public String getTypeOfItem() {
-        return typeOfItem;
+    public String getTypesOfItem() {
+        return typesOfItem;
     }
 
-    public void setTypeOfItem(String typeOfItem) {
-        this.typeOfItem = typeOfItem;
+    public void setTypesOfItem(String typeOfItem) {
+        this.typesOfItem = typeOfItem;
     }
-
 
     public String getPhone() {
         return phone;

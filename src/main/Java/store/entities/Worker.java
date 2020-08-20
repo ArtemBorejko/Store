@@ -11,17 +11,13 @@ public class Worker {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idOfWorker;
-    @NotNull
-    private String login;
-    private String password;
     private String fullname;
     private String post;
     @Size(min = 9, max = 11)
     @NotNull
     private String phone;
-    @NotNull
-    private Date dateofstart;
-    private Date dateofbirthday;
+    private Date dateOfStart;
+    private Date dateOfBirthday;
     @NotNull
     private String idencode;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "worker")
@@ -36,22 +32,6 @@ public class Worker {
 
     public void setIdOfWorker(int idOfWorker) {
         this.idOfWorker = idOfWorker;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getFullname() {
@@ -78,20 +58,20 @@ public class Worker {
         this.phone = phone;
     }
 
-    public Date getDateofstart() {
-        return dateofstart;
+    public Date getDateOfStart() {
+        return dateOfStart;
     }
 
-    public void setDateofstart(Date dateofstart) {
-        this.dateofstart = dateofstart;
+    public void setDateofStart(Date dateOfStart) {
+        this.dateOfStart = dateOfStart;
     }
 
-    public Date getDateofbirthday() {
-        return dateofbirthday;
+    public Date getDateofBirthday() {
+        return dateOfBirthday;
     }
 
-    public void setDateofbirthday(Date dateofbirthday) {
-        this.dateofbirthday = dateofbirthday;
+    public void setDateofBirthday(Date dateOfBirthday) {
+        this.dateOfBirthday = dateOfBirthday;
     }
 
     public String getIdencode() {
