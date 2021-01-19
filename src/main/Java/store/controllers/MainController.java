@@ -9,11 +9,11 @@ import store.services.*;
 @Controller
 public class MainController {
 
-    private ProviderService providerService;
-    private ClientService clientService;
-    private OrderService orderService;
-    private WorkerService workerService;
-    private ItemService itemService;
+    private final ProviderService providerService;
+    private final ClientService clientService;
+    private final OrderService orderService;
+    private final WorkerService workerService;
+    private final ItemService itemService;
 
     public MainController(ProviderService providerService, ClientService clientService, WorkerService workerService, ItemService itemService, OrderService orderService) {
         this.providerService = providerService;

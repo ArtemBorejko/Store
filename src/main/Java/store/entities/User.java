@@ -2,6 +2,7 @@ package store.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,15 +10,17 @@ import java.util.Set;
 @Table(name = "user")
 public class User{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotEmpty
     @Column(nullable = false, unique = true)
+    @Size(min = 2, message = "Write more than 2 characters")
     private String username;
     @NotEmpty
+    @Size(min = 2, message = "Write more than 2 characters")
     private String password;
-
+    @NotEmpty
     private String post;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_authority", joinColumns = {@JoinColumn(name = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "authority_id")})
