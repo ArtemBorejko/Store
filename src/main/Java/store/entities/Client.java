@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity(name = "clients")
 public class Client {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idOfClient;
     @NotNull
     private String fullname;

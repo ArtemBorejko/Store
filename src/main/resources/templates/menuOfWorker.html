@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>List of workers</title>
+    <title>List of items</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="style.css" rel="stylesheet">
 </head>
@@ -27,5 +27,11 @@
         <td><span th:text="${worker.idencode}"></span></td>
     </tr>
 </table>
+    <button><a href="/worker/addWorker">Add a new item</a></button>
+    <button><a href="/">Back to menu</a></button>
+    <ul title="To remove or to update an item, write in a search bar of your browser commands:">
+        <li>/worker/rmWorker/id_of_item - to remove a worker</li>
+        <li>/worker/upItem/id_of_item - to update a worker.</li>
+    </ul>
 </body>
 </html>

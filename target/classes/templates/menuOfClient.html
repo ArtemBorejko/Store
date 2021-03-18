@@ -1,8 +1,7 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <title>List of clients</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
@@ -25,5 +24,11 @@
         <td><span th:text="${client.dateOfBirth}"></span></td>
     </tr>
 </table>
+    <button><a href="/client/addClient">Add a new client</a></button>
+    <button><a href="/client">Back to menu</a></button>
+    <ul title="To remove or to update an client, write in a search bar of your browser commands:">
+        <li>rmItem/id_of_client - to remove an client.</li>
+        <li>upItem/id_of_client - to update an client.</li>
+    </ul>
 </body>
 </html>

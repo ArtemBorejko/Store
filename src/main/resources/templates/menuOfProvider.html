@@ -7,8 +7,7 @@
 </head>
 <body>
 <h1>List of providers</h1>
-<table>
-    <tr>
+<table>    <tr>
         <th>Id</th>
         <th>Name</th>
         <th>Address</th>
@@ -25,5 +24,11 @@
         <td><span th:text="${provider.fullname}"></span></td>
     </tr>
 </table>
+    <button><a href="/provider/addProvider">Add a new provider</a></button>
+    <button><a href="/">Back to menu</a></button>
+    <ul title="To remove or to update an provider, write in a search bar of your browser commands:">
+        <li>rmItem/id_of_provider - to remove an provider.</li>
+        <li>upItem/id_of_provider - to update an provider.</li>
+    </ul>
 </body>
 </html>

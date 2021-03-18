@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity(name = "workers")
 public class Worker {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idOfWorker;
     private String fullname;
     private String post;

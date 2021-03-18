@@ -29,8 +29,13 @@
         <td><span th:text="${order.priceOfOrder}"></span></td>
         <td><span th:text="${order.paymentMeth}"></span></td>
         <td><span th:text="${order.methOfObt}"></span></td>
-        <td><span th:text="${order.getItemsList()}"></span></td>
     </tr>
 </table>
+    <button><a href="/order/addOrder">Add a new order</a></button>
+    <button><a href="menuOfOrder.html">Back to menu</a></button>
+    <ul title="To remove or to update an order, write in a search bar of your browser commands:">
+        <li>rmItem/id_of_order - to remove an order.</li>
+        <li>upItem/id_of_order - to update an order.</li>
+    </ul>
 </body>
 </html>

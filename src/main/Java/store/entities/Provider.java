@@ -8,7 +8,7 @@ import java.util.List;
 @Entity(name = "providers")
 public class Provider {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idOfProvider;
     @NotNull
     private String name;

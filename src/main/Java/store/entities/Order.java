@@ -8,7 +8,7 @@ import java.util.List;
 @Entity(name = "orders")
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idOfOrder;
     private int numOfOr;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
