@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Add new client</h1>
-    <form action="#" th:action="@{/client}" th:object="${client}" method="post">
+    <form action="#" th:action="@{/client/addClient}" th:object="${client}" method="post">
         <p>Id: <input type="number" th:field="*{idOfClient}" /></p>
         <p>Fullname: <input type="text" th:field="*{fullname}" /></p>
         <p>Email: <input type="email" th:field="*{email}" /></p>

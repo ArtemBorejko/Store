@@ -30,12 +30,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                     .antMatchers("/user/**", "/order/**", "/provider/**", "/worker/**", "/item/rmItem/**", "/item/upItem/**", "/item/updateItem/**").hasRole("MANAGER")
-                    .antMatchers("/item/addItem/**").hasAnyRole("SELLER")
+                    .antMatchers("/item/addItem/**").hasRole("SELLER")
                     .antMatchers("/resources/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .defaultSuccessUrl("/menu");
+
     }
 
     @Override

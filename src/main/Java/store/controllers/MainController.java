@@ -108,7 +108,7 @@ public class MainController {
         return "menuOfProvider";
     }
 
-    @GetMapping("/provider/addProvider")
+    @RequestMapping(value = "/provider/addProvider", method = RequestMethod.PUT)
     public String providerForm(Model model){
         model.addAttribute("provider", new Provider());
         return "addProvider";
