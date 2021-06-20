@@ -6,7 +6,9 @@ xmlns:th="https://www.thymeleaf.org">
     <title>Menu page</title>
 </head>
 <body>
+<p><img src="logo.jpg"></p>
 <h1 th:inline="text">Hello, [[${#httpServletRequest.remoteUser}]]!</h1>
+<button><a href="/client">Client menu</a></button>
 <form th:action="@{logout}" method="post">
     <input type="submit" value="Sign out">
 </form>

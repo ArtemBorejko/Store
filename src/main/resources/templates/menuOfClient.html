@@ -5,30 +5,48 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-<h1>List of clients</h1>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Fullname</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Address</th>
-        <th>DateOfBirth</th>
-    </tr>
-    <tr th:each="client : ${clients}">
-        <td><span th:text="${client.idOfClient}"></span></td>
-        <td><span th:text="${client.fullname}"></span></td>
-        <td><span th:text="${client.email}"></span></td>
-        <td><span th:text="${client.phone}"></span></td>
-        <td><span th:text="${client.address}"></span></td>
-        <td><span th:text="${client.dateOfBirth}"></span></td>
-    </tr>
-</table>
+<div class="container">
+    <header>
+        <nav>
+            <ul class="navTop">
+                <li><a href="/menu">Main menu</a></li>
+                <li><a href="/provider">Provider menu</a></li>
+                <li><a href="/worker">Worker menu</a></li>
+                <li><a href="/order">Order menu</a></li>
+                <li><a href="/item">Item menu</a></li>
+            </ul>
+        </nav>
+        <div class="imgDiv">
+            <img class="logo" alt="logo" src="logo.jpg"></p>
+        </div>
+    </header>
+    <h1>List of clients</h1>
+    <div class="table">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Fullname</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>DateOfBirth</th>
+            </tr>
+            <tr th:each="client : ${clients}">
+                <td><span th:text="${client.idOfClient}"></span></td>
+                <td><span th:text="${client.fullname}"></span></td>
+                <td><span th:text="${client.email}"></span></td>
+                <td><span th:text="${client.phone}"></span></td>
+                <td><span th:text="${client.address}"></span></td>
+                <td><span th:text="${client.dateOfBirth}"></span></td>
+            </tr>
+        </table>
+    </div>
     <button><a href="/client/addClient">Add a new client</a></button>
-    <button><a href="/client">Back to menu</a></button>
+    <button><a href="/menu">Back to menu</a></button>
     <ul title="To remove or to update an client, write in a search bar of your browser commands:">
-        <li>rmItem/id_of_client - to remove an client.</li>
-        <li>upItem/id_of_client - to update an client.</li>
+        <li>rmClient/id_of_client - to remove an client.</li>
+        <li>upClient/id_of_client - to update an client.</li>
     </ul>
+</div>
 </body>
 </html>

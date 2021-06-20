@@ -23,7 +23,7 @@ public class MainController {
         this.orderService = orderService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/menu")
     public String Menu(){
         return "menu";
     }

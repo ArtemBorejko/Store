@@ -1,10 +1,8 @@
 package store.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Entity(name = "items")
 public class Item {
@@ -20,9 +18,9 @@ public class Item {
     @NotNull
     private int price;
     @NotNull
-    private int numOfPar;
-    @NotNull
     private int number;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
+    private Set<providers_items> itemsSet;
 
     public int getIdOfItem() {
         return idOfItem;
@@ -62,14 +60,6 @@ public class Item {
 
     public void setPrice(int price) {
         this.price = price;
-    }
-
-    public int getNumOfPar() {
-        return numOfPar;
-    }
-
-    public void setNumOfPar(int numOfPar) {
-        this.numOfPar = numOfPar;
     }
 
     public int getNumber() {

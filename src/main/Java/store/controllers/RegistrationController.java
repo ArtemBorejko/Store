@@ -15,7 +15,7 @@ public class RegistrationController {
     @GetMapping("login-failed")
     public String loginFailed(Model model){
         model.getAttribute("error");
-        return "login.html";
+        return "login-failed";
     }
 
 

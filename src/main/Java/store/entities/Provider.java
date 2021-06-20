@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.Set;
 
 @Entity(name = "providers")
 public class Provider {
@@ -14,16 +15,13 @@ public class Provider {
     private String name;
     @NotNull
     private String address;
-    @NotNull
-    private String typesOfItem;
     @Size(min = 9, max = 11)
     @NotNull
     private String phone;
     @NotNull
     private String fullname;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "providers_items", joinColumns = {@JoinColumn(name = "provider_id")}, inverseJoinColumns = {@JoinColumn(name = "item_id")})
-    private List<Item> items;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "provider")
+    private Set<providers_items> itemsset;
 
     public Provider(){
     }
@@ -51,14 +49,6 @@ public class Provider {
         this.address = address;
     }
 
-    public String getTypesOfItem() {
-        return typesOfItem;
-    }
-
-    public void setTypesOfItem(String typeOfItem) {
-        this.typesOfItem = typeOfItem;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -73,13 +63,5 @@ public class Provider {
 
     public void setFullname(String fullname) {
         this.fullname = fullname;
-    }
-
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
     }
 }

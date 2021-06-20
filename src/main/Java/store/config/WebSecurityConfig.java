@@ -1,58 +1,61 @@
-//package store.config;
-//
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-//import org.springframework.security.core.userdetails.UserDetailsService;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-//import store.services.implementations.UserDetailsServiceImpl;
-//
-//@Configuration
-//@EnableWebSecurity
-//public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-//
-//    @Bean
-//    public UserDetailsService userDetailsService(){
-//        return new UserDetailsServiceImpl();
-//    }
-//
-//
-//    @Bean
-//    public DaoAuthenticationProvider authenticationProvider(){
-//        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-//        authProvider.setUserDetailsService(userDetailsService());
-//        authProvider.setPasswordEncoder(passwordEncoder());
-//        return authProvider;
-//    }
-//
-//    private PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder(10);
-//    }
-//
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) {
-//        auth.authenticationProvider(authenticationProvider());
-//    }
-//
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception{
-//        http
-//                .csrf().disable()
-//                .authorizeRequests()
-//                    .antMatchers("/registration").permitAll()
-//                    .antMatchers("/admin").hasRole("ADMIN")
-//                    .antMatchers("/user/**", "/order", "/provider").hasRole("MANAGER")
-//                    .antMatchers("/item").hasAnyRole("MANAGER, SELLER")
-//                    .antMatchers("/resources/**").permitAll()
-//                .anyRequest().authenticated()
-//                .and()
-//                .formLogin()
-//                    .loginPage("/login").permitAll()
-//                    .defaultSuccessUrl("/");
-//    }
-//}
+package store.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public WebSecurityConfig(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception{
+        http
+                .csrf().disable()
+                .authorizeRequests()
+                    .antMatchers("/user/**", "/order/**", "/provider/**", "/worker/**", "/item/rmItem/**", "/item/upItem/**", "/item/updateItem/**").hasRole("MANAGER")
+                    .antMatchers("/item/addItem/**").hasAnyRole("SELLER")
+                    .antMatchers("/resources/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .defaultSuccessUrl("/menu");
+    }
+
+    @Override
+    @Bean
+    protected UserDetailsService userDetailsService() {
+        UserDetails managerUser = User.builder()
+                .username("Salivan_manager")
+                .password(passwordEncoder.encode("managerpassword"))
+                .roles(ApplicationUserRole.MANAGER.name())
+                .build();
+
+        UserDetails sellerUser = User.builder()
+                .username("Tommy_seller")
+                .password(passwordEncoder.encode("sellerpassword"))
+                .roles(ApplicationUserRole.SELLER.name())
+                .build();
+
+        return new InMemoryUserDetailsManager(
+                managerUser,
+                sellerUser
+        );
+    }
+}
