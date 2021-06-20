@@ -14,9 +14,14 @@
             <li><a href="/provider">Provider menu</a></li>
             <li><a href="/worker">Worker menu</a></li>
             <li><a href="/order">Order menu</a></li>
-            <li><a href="/item">Item menu</a></li>
+            <li><a href="/client">Client menu</a></li>
         </ul>
     </nav>
+    <div class="signOut">
+        <form th:action="@{logout}" method="post">
+            <input type="submit" value="Sign out">
+        </form>
+    </div>
     <div class="imgDiv">
         <img class="logo" alt="logo" src="logo.jpg"></p>
     </div>
@@ -47,6 +52,9 @@
         <li>rmItem/id_of_item - to remove an item.</li>
         <li>upItem/id_of_item - to update an item.</li>
     </ul>
+    <form th:action="@{logout}" method="post">
+        <input type="submit" value="Sign out">
+    </form>
     </div>
     </body>
 </html>

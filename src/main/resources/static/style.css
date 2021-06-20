@@ -47,7 +47,9 @@ a:hover{
     color:red;
 }
 
-
+.signOut{
+    text-align: right;
+}
 
 table {
     font-size: 14px;

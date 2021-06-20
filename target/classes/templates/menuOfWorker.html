@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>List of items</title>
+    <title>List of workers</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="style.css" rel="stylesheet">
 </head>
@@ -12,11 +12,16 @@
         <ul class="navTop">
             <li><a href="/menu">Main menu</a></li>
             <li><a href="/provider">Provider menu</a></li>
-            <li><a href="/worker">Worker menu</a></li>
+            <li><a href="/client">Client menu</a></li>
             <li><a href="/order">Order menu</a></li>
             <li><a href="/item">Item menu</a></li>
         </ul>
     </nav>
+    <div class="signOut">
+        <form th:action="@{logout}" method="post">
+            <input type="submit" value="Sign out">
+        </form>
+    </div>
     <div class="imgDiv">
         <img class="logo" alt="logo" src="logo.jpg"></p>
     </div>
@@ -42,12 +47,15 @@
         <td><span th:text="${worker.idencode}"></span></td>
     </tr>
 </table>
-    <button><a href="/worker/addWorker">Add a new item</a></button>
+    <button><a href="/worker/addWorker">Add a new worker</a></button>
     <button><a href="/menu">Back to menu</a></button>
     <ul title="To remove or to update an item, write in a search bar of your browser commands:">
         <li>/worker/rmWorker/id_of_item - to remove a worker</li>
         <li>/worker/upItem/id_of_item - to update a worker.</li>
     </ul>
+    <form th:action="@{logout}" method="post">
+        <input type="submit" value="Sign out">
+    </form>
     </div>
 </body>
 </html>
