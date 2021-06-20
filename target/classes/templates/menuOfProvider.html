@@ -6,8 +6,24 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+<div class="container">
+<header>
+    <nav>
+        <ul class="navTop">
+            <li><a href="/menu">Main menu</a></li>
+            <li><a href="/provider">Provider menu</a></li>
+            <li><a href="/worker">Worker menu</a></li>
+            <li><a href="/order">Order menu</a></li>
+            <li><a href="/item">Item menu</a></li>
+        </ul>
+    </nav>
+    <div class="imgDiv">
+        <img class="logo" alt="logo" src="logo.jpg"></p>
+    </div>
+</header>
 <h1>List of providers</h1>
-<table>    <tr>
+<table>
+    <tr>
         <th>Id</th>
         <th>Name</th>
         <th>Address</th>
@@ -19,7 +35,6 @@
         <td><span th:text="${provider.idOfProvider}"></span></td>
         <td><span th:text="${provider.name}"></span></td>
         <td><span th:text="${provider.address}"></span></td>
-        <td><span th:text="${provider.typesOfItem}"></span></td>
         <td><span th:text="${provider.phone}"></span></td>
         <td><span th:text="${provider.fullname}"></span></td>
     </tr>
@@ -30,5 +45,6 @@
         <li>rmItem/id_of_provider - to remove an provider.</li>
         <li>upItem/id_of_provider - to update an provider.</li>
     </ul>
+    </div>
 </body>
 </html>

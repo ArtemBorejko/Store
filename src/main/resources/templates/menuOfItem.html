@@ -6,13 +6,28 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+<div class="container">
+<header>
+    <nav>
+        <ul class="navTop">
+            <li><a href="/menu">Main menu</a></li>
+            <li><a href="/provider">Provider menu</a></li>
+            <li><a href="/worker">Worker menu</a></li>
+            <li><a href="/order">Order menu</a></li>
+            <li><a href="/client">Client menu</a></li>
+        </ul>
+    </nav>
+    <div class="imgDiv">
+        <img class="logo" alt="logo" src="logo.jpg"></p>
+    </div>
+</header>
 <h1>List of items</h1>
 <table>
     <tr>
         <th>Id</th>
         <th>Name</th>
         <th>ListOfCon</th>
-        <th>Сharacteristics:</th>
+        <th>Сharacteristics</th>
         <th>Price</th>
         <th>NumOfpar</th>
         <th>Number</th>
@@ -23,7 +38,6 @@
         <td><span th:text="${item.listOfCon}"></span></td>
         <td><span th:text="${item.charac}"></span></td>
         <td><span th:text="${item.price}"></span></td>
-        <td><span th:text="${item.numOfPar}"></span></td>
         <td><span th:text="${item.number}"></span></td>
     </tr>
 </table>
@@ -33,5 +47,6 @@
         <li>rmItem/id_of_item - to remove an item.</li>
         <li>upItem/id_of_item - to update an item.</li>
     </ul>
-</body>
+    </div>
+    </body>
 </html>

@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Add new item</h1>
-<form action="#" th:action="@{/item}" th:object="${item}" method="post">
+<form action="#" th:action="@{/item/addItem}" th:object="${item}" method="post">
     <p>Id: <input type="number" th:field="*{idOfItem}" /></p>
     <p>Name: <input type="text" th:field="*{name}" /></p>
     <p>ListOfCon: <input type="text" th:field="*{listOfCon}" /></p>
