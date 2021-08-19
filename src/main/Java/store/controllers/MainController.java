@@ -167,7 +167,7 @@ public class MainController {
     @PostMapping("/client/updateClient")
     public String postClient(@ModelAttribute Client client){
         clientService.update(client);
-        return "redirect:/allClients";
+        return "redirect:/client";
     }
 
     @GetMapping("/client/rmClient/{idOfClient}")

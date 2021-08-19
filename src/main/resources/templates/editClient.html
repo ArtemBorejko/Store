@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Edit client</h1>
-<form action="#" th:action="@{/client}" th:object="${client}" method="post">
+<form action="#" th:action="@{/client/updateClient}" th:object="${client}" method="post">
     <p>Id: <input type="number" th:field="*{idOfClient}" th:value="*{idOfClient}"/></p>
     <p>Fullname: <input type="text" th:field="*{fullname}" th:value="*{fullname}" /></p>
     <p>Email: <input type="email" th:field="*{email}" th:value="*{email}"/></p>

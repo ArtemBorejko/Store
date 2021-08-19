@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Add new worker</h1>
-<form action="#" th:action="@{/worker}" th:object="${worker}" method="post">
+<form action="#" th:action="@{/worker/updateWorker}" th:object="${worker}" method="post">
     <p>Id: <input type="number" th:field="*{idOfWorker}" th:value="*{idOfWorker}"/></p>
     <p>Enter you fullname: <input type="text" th:field="*{fullname}" th:value="*{fullname}"/></p>
     <p>Your post: <input type="text" th:field="*{post}" th:value="*{post}"/></p>

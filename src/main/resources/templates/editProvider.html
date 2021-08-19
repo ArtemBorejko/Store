@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Edit Provider</h1>
-<form action="#" th:action="@{/editProvider}" th:object="${provider}" method="post">
+<form action="#" th:action="@{/provider/updateProvider}" th:object="${provider}" method="post">
     <p>Id: <input type="number" th:field="*{idOfProvider}" th:value="*{idOfProvider}"/></p>
     <p>Name: <input type="text" th:field="*{name}" th:value="*{name}"/></p>
     <p>Address: <input type="text" th:field="*{address}"  th:value="*{address}"/></p>

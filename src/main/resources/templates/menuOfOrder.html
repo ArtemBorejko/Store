@@ -13,7 +13,7 @@
             <li><a href="/menu">Main menu</a></li>
             <li><a href="/provider">Provider menu</a></li>
             <li><a href="/worker">Worker menu</a></li>
-            <li><a href="/client">Client menu</a></li>
+            <li><a href="/order">order menu</a></li>
             <li><a href="/item">Item menu</a></li>
         </ul>
     </nav>
@@ -31,7 +31,7 @@
     <tr>
         <th>Id</th>
         <th>NumOfOr</th>
-        <th>IdOfClient</th>
+        <th>IdOforder</th>
         <th>IdOfWorker</th>
         <th>DateOfOrder</th>
         <th>Order status</th>
@@ -42,21 +42,19 @@
     <tr th:each="order : ${orders}">
         <td><span th:text="${order.idOfOrder}"></span></td>
         <td><span th:text="${order.numOfOr}"></span></td>
-        <td><span th:text="${order.client.getIdOfClient()}"></span></td>
+        <td><span th:text="${order.order.getIdOforder()}"></span></td>
         <td><span th:text="${order.worker.getIdOfWorker()}"></span></td>
         <td><span th:text="${order.dateOfOrder}"></span></td>
         <td><span th:text="${order.orderStatus}"></span></td>
         <td><span th:text="${order.priceOfOrder}"></span></td>
         <td><span th:text="${order.paymentMeth}"></span></td>
         <td><span th:text="${order.methOfObt}"></span></td>
+        <td><span><a th:href="@{/order/rmorder/{id}(id=${order.idOforder})}">Remove a order</a></span></td>
+        <td><span><a th:href="@{/order/uporder/{id}(id=${order.idOforder})}">Update a order</a></span></td>
     </tr>
 </table>
     <button><a href="/order/addOrder">Add a new order</a></button>
     <button><a href="/menu">Back to menu</a></button>
-    <ul title="To remove or to update an order, write in a search bar of your browser commands:">
-        <li>rmItem/id_of_order - to remove an order.</li>
-        <li>upItem/id_of_order - to update an order.</li>
-    </ul>
     <form th:action="@{logout}" method="post">
         <input type="submit" value="Sign out">
     </form>
