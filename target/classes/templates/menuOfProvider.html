@@ -11,7 +11,7 @@
     <nav>
         <ul class="navTop">
             <li><a href="/menu">Main menu</a></li>
-            <li><a href="/client">Client menu</a></li>
+            <li><a href="/provider">provider menu</a></li>
             <li><a href="/worker">Worker menu</a></li>
             <li><a href="/order">Order menu</a></li>
             <li><a href="/item">Item menu</a></li>
@@ -42,14 +42,12 @@
         <td><span th:text="${provider.address}"></span></td>
         <td><span th:text="${provider.phone}"></span></td>
         <td><span th:text="${provider.fullname}"></span></td>
+        <td><span><a th:href="@{/provider/rmprovider/{id}(id=${provider.idOfprovider})}">Remove a provider</a></span></td>
+        <td><span><a th:href="@{/provider/upprovider/{id}(id=${provider.idOfprovider})}">Update a provider</a></span></td>
     </tr>
 </table>
     <button><a href="/provider/addProvider">Add a new provider</a></button>
     <button><a href="/menu">Back to menu</a></button>
-    <ul title="To remove or to update an provider, write in a search bar of your browser commands:">
-        <li>rmItem/id_of_provider - to remove an provider.</li>
-        <li>upItem/id_of_provider - to update an provider.</li>
-    </ul>
     <form th:action="@{logout}" method="post">
         <input type="submit" value="Sign out">
     </form>

@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Edit order</h1>
-<form action="#" th:action="@{/order}" th:object="${order}" method="post">
+<form action="#" th:action="@{/order/updateOrder}" th:object="${order}" method="post">
     <p>Id: <input type="number" th:field="*{idOfOrder}"  th:value="*{idOfOrder}"/></p>
     <p>NumOfOr: <input type="number" th:field="*{numOfOr}" th:value="*{numOfOr}"/></p>
     <p>IdOfClient: <input type="number" th:field="*{client.getIdOfClient()}" th:value="*{client.getIdOfClient()}"/></p>

@@ -14,7 +14,7 @@
             <li><a href="/provider">Provider menu</a></li>
             <li><a href="/worker">Worker menu</a></li>
             <li><a href="/order">Order menu</a></li>
-            <li><a href="/client">Client menu</a></li>
+            <li><a href="/item">item menu</a></li>
         </ul>
     </nav>
     <div class="signOut">
@@ -43,15 +43,13 @@
         <td><span th:text="${item.listOfCon}"></span></td>
         <td><span th:text="${item.charac}"></span></td>
         <td><span th:text="${item.price}"></span></td>
-        <td><span th:text="${item.number}"></span></td>
+        <td><span th:text="${item.number}"></span></td>\
+        <td><span><a th:href="@{/item/rmItem/{id}(id=${item.idOfitem})}">Remove a item</a></span></td>
+        <td><span><a th:href="@{/item/upitem/{id}(id=${item.idOfitem})}">Update a item</a></span></td>
     </tr>
 </table>
     <button><a href="/item/addItem">Add a new item</a></button>
     <button><a href="/menu">Back to menu</a></button>
-    <ul title="To remove or to update an item, write in a search bar of your browser commands:">
-        <li>rmItem/id_of_item - to remove an item.</li>
-        <li>upItem/id_of_item - to update an item.</li>
-    </ul>
     <form th:action="@{logout}" method="post">
         <input type="submit" value="Sign out">
     </form>
